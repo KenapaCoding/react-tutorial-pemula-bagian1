@@ -1,0 +1,191 @@
+* {
+  font-family: 'Inter', sans-serif;
+}
+.app-title {
+  font-size: 48px;
+  font-weight: 700px;
+  text-shadow: 2px 2px;
+  display: flex;
+  justify-content: center;
+  margin: 20px 150px;
+}
+.product-create {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px 150px 0px 150px;
+}
+.toggle-add {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+
+  flex-grow: 1;
+}
+.form-add-title {
+  display: flex;
+  font-size: 24px;
+  font-weight: 600;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.cards {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 300px 300px 300px 300px;
+  margin: 0px 100px;
+  gap: 10px;
+}
+.edit-delete {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  z-index: 10000;
+  justify-content: end;
+}
+.icon-delete,
+.icon-edit {
+  color: rgb(177, 177, 177);
+  width: 20px;
+  height: 30px;
+  background-color: white;
+  box-shadow: 3px;
+  cursor: pointer;
+}
+.add-input-text {
+  padding: 10px;
+  width: 400px;
+  margin-bottom: 20px;
+  border: 2px solid rgb(108, 184, 247);
+  border-radius: 5px;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+.edit-input-text {
+  padding: 10px;
+  width: 200px;
+  margin-bottom: 20px;
+  border: 2px solid rgb(108, 184, 247);
+  border-radius: 5px;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+.edit-input-submit:hover,
+.edit-input-cancel:hover {
+  opacity: 0.7;
+}
+.edit-input-submit,
+.edit-input-cancel {
+  padding: 10px;
+
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  color: white;
+  cursor: pointer;
+}
+.add-toggle {
+  background: rgb(108, 184, 247);
+  margin-bottom: 20px;
+  width: 100px !important;
+}
+.add {
+  background: rgb(108, 184, 247);
+}
+.edit-input-text:focus,
+.add-input-text:focus {
+  outline: none;
+}
+.cancel {
+  background: rgb(251, 129, 129);
+}
+.save {
+  background: rgb(3, 181, 3);
+  margin-bottom: 20px;
+}
+.icon-delete:hover {
+  color: rgb(251, 129, 129);
+}
+.icon-edit:hover {
+  color: rgb(3, 181, 3);
+}
+.product-edit {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 10px;
+  padding: 20px;
+  align-items: center;
+  flex-grow: 1;
+  gap: 40px;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.card-keranjang {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 10px;
+  padding: 5px;
+  height: 20px;
+}
+.jumlah-product {
+  border: 3px solid rgb(188, 184, 184);
+  gap: 10px;
+}
+.keranjang {
+  flex-grow: 1;
+  text-align: center;
+}
+.show-keranjang {
+  padding: 8px 0px;
+  background-color: rgb(108, 184, 247);
+  color: white;
+  cursor: pointer;
+}
+.show-keranjang:hover {
+  opacity: 0.7;
+}
+.button {
+  background: white;
+  color: rgb(108, 184, 247);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.container {
+  padding: 2px 16px;
+}
+@media screen and (max-width: 1300px) {
+  .cards {
+    grid-template-columns: 300px 300px;
+    gap: 40px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .cards {
+    grid-template-columns: 300px;
+    gap: 40px;
+  }
+  .app-title {
+    margin: 20px 0px;
+  }
+  .toggle-add {
+    justify-content: center;
+  }
+}
