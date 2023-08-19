@@ -1,18 +1,12 @@
 import React from 'react';
 import ProductCard from './ProductCard';
+import { Products } from '../data/product.js';
 
-const ProductList = ({ products, onDeleteProduct, onEditProduct }) => {
+const ProductList = () => {
   return (
     <div className="cards">
-      {products.map((product) => {
-        return (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onDeleteProduct={onDeleteProduct}
-            onEditProduct={onEditProduct}
-          />
-        );
+      {Products.map((product) => {
+        return <ProductCard key={product.id} product={product} />;
       })}
     </div>
   );
