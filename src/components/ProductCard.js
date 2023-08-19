@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-const ProductCard = ({ product, onDeleteProduct, onEditProduct }) => {
+const ProductCard = ({ product }) => {
   const [jumlahProduct, setJumlahProduct] = useState(0);
   const [showKeranjang, setShowKeranjang] = useState(true);
   const tambahProduct = (operator) => {
