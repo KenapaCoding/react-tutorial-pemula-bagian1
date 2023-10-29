@@ -1,35 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ProductCreate from './components/ProductCreate.js';
 import ProductList from './components/ProductList.js';
-import { Products } from './data/product.js';
 import './App.css';
+import axios from 'axios';
 import { useState } from 'react';
 
 const App = () => {
-  const [products, setProducts] = useState(Products);
-  const editProductById = (id, data) => {
+  const [products, setProducts] = useState([]);
+  const fetchProducts = async () => {
+    const response = await axios.get('http://localhost:3001/products')
+    setProducts(response.data)
+  }
+  useEffect(() => {
+    fetchProducts()
+  }, [])
+  const editProductById = async (id, data) => {
+    const response = await axios.put(`http://localhost:3001/products/${id}`, data)
     const updatedProducts = products.map((prod) => {
       if (prod.id === id) {
-        console.log({ ...prod, ...data });
-        return { ...prod, ...data };
+        console.log({ ...prod, ...response.data });
+        return { ...prod, ...response.data };
       }
 
       return prod;
     });
-    console.log(updatedProducts);
     setProducts(updatedProducts);
   };
-  const onCreateProduct = (product) => {
+  const onCreateProduct = async (product) => {
+    const response = await axios.post('http://localhost:3001/products',product)
     setProducts([
       ...products,
-      {
-        id: Math.round(Math.random() * 1998),
-        ...product,
-      },
+      response.data
     ]);
-    console.log(products);
+    console.log(response)
   };
-  const onDeleteProduct = (id) => {
+  const onDeleteProduct = async (id) => {
+    await axios.delete(`http://localhost:3001/products/${id}`)
     const updatedProducts = products.filter((prod) => {
       return prod.id !== id;
     });
