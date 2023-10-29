@@ -2,20 +2,20 @@ import React, { useEffect } from 'react';
 import ProductCreate from './components/ProductCreate.js';
 import ProductList from './components/ProductList.js';
 import './App.css';
-import axios from 'axios';
 import { useState } from 'react';
+import { createProductApi, deleteProductApi, editProductApi, fetchProductsApi } from './api';
 
 const App = () => {
   const [products, setProducts] = useState([]);
   const fetchProducts = async () => {
-    const response = await axios.get('http://localhost:3001/products')
+    const response = await fetchProductsApi()
     setProducts(response.data)
   }
   useEffect(() => {
     fetchProducts()
   }, [])
   const editProductById = async (id, data) => {
-    const response = await axios.put(`http://localhost:3001/products/${id}`, data)
+    const response = await editProductApi(id,data)
     const updatedProducts = products.map((prod) => {
       if (prod.id === id) {
         console.log({ ...prod, ...response.data });
@@ -27,7 +27,7 @@ const App = () => {
     setProducts(updatedProducts);
   };
   const onCreateProduct = async (product) => {
-    const response = await axios.post('http://localhost:3001/products',product)
+    const response = await createProductApi(product)
     setProducts([
       ...products,
       response.data
@@ -35,7 +35,7 @@ const App = () => {
     console.log(response)
   };
   const onDeleteProduct = async (id) => {
-    await axios.delete(`http://localhost:3001/products/${id}`)
+    await deleteProductApi(id)
     const updatedProducts = products.filter((prod) => {
       return prod.id !== id;
     });
