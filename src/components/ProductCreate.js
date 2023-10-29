@@ -1,7 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
+import { useContext } from 'react';
+import ProductContext from '../context/products';
 
-const ProductCreate = ({ onCreateProduct }) => {
+const ProductCreate = () => {
+  const {onCreateProduct} = useContext(ProductContext)
   const initialState = {
     nama: '',
     deskripsi: '',

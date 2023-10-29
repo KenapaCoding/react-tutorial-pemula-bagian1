@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ProductCard from './ProductCard';
+import ProductContext from '../context/products';
 
-const ProductList = ({ products, onDeleteProduct, onEditProduct }) => {
+const ProductList = () => {
+  const {products} = useContext(ProductContext)
   return (
     <div className="cards">
       {products.map((product) => {
@@ -9,8 +11,6 @@ const ProductList = ({ products, onDeleteProduct, onEditProduct }) => {
           <ProductCard
             key={product.id}
             product={product}
-            onDeleteProduct={onDeleteProduct}
-            onEditProduct={onEditProduct}
           />
         );
       })}

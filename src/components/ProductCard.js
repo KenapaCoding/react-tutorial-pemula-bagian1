@@ -1,10 +1,12 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { AiTwotoneEdit } from 'react-icons/ai';
 import { MdDeleteForever } from 'react-icons/md';
 import ProductEdit from './ProductEdit';
+import ProductContext from '../context/products';
 
-const ProductCard = ({ product, onDeleteProduct, onEditProduct }) => {
+const ProductCard = ({ product}) => {
+  const {onDeleteProduct, editProductById} = useContext(ProductContext);
   const [jumlahProduct, setJumlahProduct] = useState(0);
   const [showKeranjang, setShowKeranjang] = useState(true);
   const [showEdit, setShowEdit] = useState(false);
@@ -26,7 +28,7 @@ const ProductCard = ({ product, onDeleteProduct, onEditProduct }) => {
   };
   const handleSubmitEdit = (id, data) => {
     setShowEdit(false);
-    onEditProduct(id, data);
+    editProductById(id, data);
   };
   const handleCancelEdit = () => {
     setShowEdit(false);
